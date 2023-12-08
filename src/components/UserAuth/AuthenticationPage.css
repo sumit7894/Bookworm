@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+
+.auth__page{
+    background-color: brown;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.auth__form
+{
+border-radius: 10px;
+background-color: wheat;
+height: 45vh;
+width: 50vw;
+padding: 10px;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+}
+.authentication__form{
+    margin-top: 6vh;
+    font-size: 2rem;
+}
+.logo
+{
+font-family: 'Sacramento';
+font-size: 4rem;
+float: top;
+}
+input{
+    width: 80%;
+    height: 1.5rem;
+    padding: 10px;
+    font-size: 1.4rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: wheat;
+}
+input:focus{
+    outline: none;
+}
+.form__name,.form__email,.form__mobile,.form__password{
+    display: flex;   
+    align-content: space-evenly;
+    /* align-items: ; */
+    height: 3.5rem;
+}
+.input__area{
+    width: 100%;
+}
+.font__column{
+    box-sizing: border-box;
+    background-color: red;
+}
+.fa__icon{
+    width: 3rem;
+}
+.submit__button{
+    float: right;
+    margin: 0rem 5rem;
+    font-size: 1.5rem;
+    border-radius: 6px;
+    background-color: antiquewhite;
+}
+.footer__headline
+{
+    font-size: 1rem;
+    margin-left: 2rem;
+    margin-top: 0.4rem;
+}
+.footer__headline button{
+    background-color: wheat;
+    border-top: none;
+    border-left:none;
+    border-right:none;
+    font-size: 1.2rem;
+}
+.footer__headline button:hover{
+    background-color: wheat;
+}

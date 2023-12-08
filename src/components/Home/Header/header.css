@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+*{
+    list-style: none;
+}
+.nav{
+    height: 15vh;
+    width: 100vw;
+    background-color: brown;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+label.logo{
+color: wheat;
+font-size: 3rem;
+font-weight:bold;
+padding: 0 100px;
+font-family: 'Sacramento';
+}
+.nav ul{
+    float: right;
+    margin-right: 10rem;
+}
+.nav ul li{
+    display: inline-block;
+    margin: 0 1rem;
+    padding: 7px;
+    border-radius: 3px;
+}
+.nav button{
+    background-color: brown;
+    border: none;
+    color:  white;
+    font-size: 2rem;
+    padding: 7px;
+    border-radius: 3px;
+}
+button.active,button:hover{
+    background-color: rgb(91, 15, 15);
+    transition: .5s;
+    cursor: pointer;
+}
