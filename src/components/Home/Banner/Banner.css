@@ -1,0 +1,22 @@
+.banner{
+    display: flex;
+    margin-top: 3rem;
+    gap: 2rem;
+}
+.banner img
+{
+    height: 30rem;
+    width: 50rem;
+    margin-left: 6rem;
+}
+.banner_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: sans-serif;
+    font-style: normal;
+    color:  brown;
+}
+.banner_content h4{
+    color: grey;
+}
