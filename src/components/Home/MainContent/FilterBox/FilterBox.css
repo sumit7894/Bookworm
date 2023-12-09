@@ -1,0 +1,33 @@
+.filter__box
+{
+    width: 22vw;
+}
+.filter__heading__div{
+    background-color: brown;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    border-radius: 12px;
+    color: wheat;
+}
+.book__genre__list
+{
+    width: 100%;
+    background-color: brown;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    border-radius: 12px;
+}
+.book__genre__list button
+{
+    color: rgb(20, 115, 20);
+    padding: 0.4rem;
+    margin: 0.5rem;
+    font-size: 1.2rem;
+}

@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './header.css'
 import { useNavigate } from 'react-router-dom'
 import useProductContext from '../../../hooks/useProductContex'
 const Header = () => {
-  const {isSignup,setIsSignup,loginPage,setLoginPage} = useProductContext();
+  const {isSignup,setIsSignup,isLoggedIn,setIsLoggedIn} = useProductContext();
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    if(localStorage.getItem("token")){
+      setIsLoggedIn(true);
+    }
+  },[setIsLoggedIn]);
+
   const handleLoginClick =()=>{
     navigate("/login");
     setIsSignup(false);
@@ -13,14 +20,24 @@ const Header = () => {
     navigate("/signup");
     setIsSignup(true);
   }
+  const handleLogout =()=>{
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+  }
   return (
     <div className='nav'>
       <label className='logo'>Welcome to Bookworm!!</label>
       <ul>
-        <li><button onClick={handleLoginClick}>
+        <li>
+        {!isLoggedIn ? (<button onClick={handleLoginClick}>
         Login
-        </button></li>
-        <li><button onClick={handleSignupClick}>Signup</button></li>
+        </button>) : (<h2>Hello!</h2>)}
+        </li>
+        <li>
+        {!isLoggedIn ? (<button onClick={handleSignupClick}>
+          Signup
+        </button>):(<button onClick={handleLogout}>Logout</button>)}
+        </li>
       </ul>
     </div>
   )

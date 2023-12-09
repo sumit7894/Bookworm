@@ -4,10 +4,12 @@ const ProductContext = createContext();
 
 const Provider = ({ children }) => {
   const [loginPage, setLoginPage] = useState(false);
-//   const [signupPage,setSignupPage] = useState(false);
   const [isSignup,setIsSignup] = useState(false);
-  
-  const value = { loginPage, setLoginPage,isSignup,setIsSignup };
+  const [isLoggedIn,setIsLoggedIn] = useState();
+  const [popup,setPopup] = useState(false);
+  const value = { loginPage, setLoginPage,isSignup,setIsSignup,
+  isLoggedIn,setIsLoggedIn,popup,setPopup
+  };
 
   return (
     <ProductContext.Provider value={value}>{children}</ProductContext.Provider>

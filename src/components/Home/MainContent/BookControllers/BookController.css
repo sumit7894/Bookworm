@@ -1,0 +1,20 @@
+.controller__bar
+{
+    height: 2.2rem;
+    width: 60vw;
+    border: 5px solid brown;
+    border-radius: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.controller__items{
+    display: flex;
+    align-items: center;
+    margin-left: 5rem;
+    gap: 2rem;
+}
+.addbook__button__controller__bar
+{
+    margin-right: 5rem;
+}

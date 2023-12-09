@@ -1,0 +1,20 @@
+.content__area
+{
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 4vh;
+}
+.popup__overlay
+{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

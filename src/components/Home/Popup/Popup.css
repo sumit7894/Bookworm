@@ -1,0 +1,22 @@
+.popup__div
+{
+    display: flex;
+    height: 45vh;
+    width: 55vw;
+    background-color: wheat;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+}
+.popup__close__button
+{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    background-color: red;
+    border: none;
+    color: white;
+}
