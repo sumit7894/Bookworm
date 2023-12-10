@@ -8,7 +8,7 @@ const BookCards = () => {
     <div className='book__card__div'>
       <div className='book__logo'>
       <img src='https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/CRED_%28FinTech_company%29_logo.png/220px-CRED_%28FinTech_company%29_logo.png'
-      alt='photo'/>
+      alt='cred'/>
       </div>
       <div className='card__content'>
         <div className='book__name'> BOOK NAME</div>
