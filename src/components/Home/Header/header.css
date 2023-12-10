@@ -35,8 +35,11 @@ font-family: 'Sacramento';
     padding: 7px;
     border-radius: 3px;
 }
-button.active,button:hover{
+.nav button.active,.nav button:hover{
     background-color: rgb(91, 15, 15);
     transition: .5s;
+    cursor: pointer;
+}
+button{
     cursor: pointer;
 }

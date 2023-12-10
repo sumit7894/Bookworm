@@ -7,6 +7,7 @@ const BookList = () => {
     <div>
         <BookControllers/>
         <BookCards/>
+        <BookCards/>
     </div>
   )
 }
