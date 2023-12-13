@@ -17,17 +17,17 @@ font-weight:bold;
 padding: 0 100px;
 font-family: 'Sacramento';
 }
-.nav ul{
+.nav>ul{
     float: right;
     margin-right: 10rem;
 }
-.nav ul li{
+.nav>ul>li{
     display: inline-block;
     margin: 0 1rem;
     padding: 7px;
     border-radius: 3px;
 }
-.nav button{
+.nav>button{
     background-color: brown;
     border: none;
     color:  white;

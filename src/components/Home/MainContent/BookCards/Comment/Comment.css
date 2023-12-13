@@ -1,0 +1,55 @@
+.comment__input__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    border-radius: 40px;
+    background-color: white;
+    margin-bottom: 0.5rem;
+  }
+  
+  .comment__input__container > input {
+    width: 60vw;
+    font-size: 1.2rem;
+    border-radius: 40px;
+    background-color: white;
+    border: none;
+  }
+  
+  .input__arrow__button {
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    cursor: pointer;
+  }
+  
+.comments__section
+{
+    margin-top: 1rem;
+    overflow: auto;
+    height: auto;
+    max-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.comment
+{
+    width: 60vw;
+    gap: 1rem;
+    display: flex;
+    margin: 1rem;
+    gap: 1rem;
+}
+.comment > span
+{
+    white-space: pre-wrap;
+    
+}
+.bullet {
+    margin-left: 0.5rem;
+    height: 2vh;
+    width: 2vh;
+    border-radius: 50%;
+    background-color: blue;
+  }
+  
