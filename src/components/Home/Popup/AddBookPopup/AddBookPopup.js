@@ -5,7 +5,7 @@ import BASE_URL from '../../../../utils/constants'
 import useProductContext from '../../../../hooks/useProductContex'
 import toast, { Toaster } from 'react-hot-toast';
 const AddBookPopup = () => {
-  const {setPopup} = useProductContext();
+  const {setPopup,setCardData} = useProductContext();
   const [name,setName] = useState();
   const [tags,setTags] = useState();
   const [logo,setLogo] = useState();
@@ -31,9 +31,12 @@ const AddBookPopup = () => {
     try {
       const data ={name,logo,tags,description};
       const response = await axios.post(`${BASE_URL}/books/add`,data);
-      console.log(response);
       toast.success("Successfully addded the book");
-      setPopup(false);
+      console.log("here is response",response);
+      setTimeout(()=>{
+        setPopup(false)
+      },2000);
+      setCardData((prevArray)=>[...prevArray,response.data.data])
     } catch (error) {
       console.log(error);
       toast(error.response.data.message);

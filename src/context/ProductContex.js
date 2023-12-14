@@ -7,9 +7,9 @@ const Provider = ({ children }) => {
   const [isSignup,setIsSignup] = useState(false);
   const [isLoggedIn,setIsLoggedIn] = useState();
   const [popup,setPopup] = useState(false);
-  const [cardData,setCardData] = useState();
+  const [cardData,setCardData] = useState([]);
   const value = { loginPage, setLoginPage,isSignup,setIsSignup,
-  isLoggedIn,setIsLoggedIn,popup,setPopup
+  isLoggedIn,setIsLoggedIn,popup,setPopup,cardData,setCardData
   };
 
   return (

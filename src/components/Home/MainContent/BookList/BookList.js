@@ -5,6 +5,7 @@ import axios from 'axios'
 import BASE_URL from '../../../../utils/constants'
 import Loading from '../ShimmerUI/Loading/Loading'
 import useProductContext from '../../../../hooks/useProductContex'
+import './BookList.css'
 const BookList = () => {
   const {cardData,setCardData} = useProductContext();
   useEffect(()=>{
@@ -13,28 +14,18 @@ const BookList = () => {
   const fetchBooks = async ()=>{
     try {
       const response = await axios.get(`${BASE_URL}/books/all`);
-      console.log(response);
       const card = response?.data?.data;
       setCardData(card);
+      console.log("Yup here is card data",cardData);
     } catch (error) {
       console.log(error);
     }
   }
+  console.log("here is card data",cardData);
   return (
-    
-    <div>
+    <div className='list__container'>
         <BookControllers/>
-        <BookCards/>
-        <BookCards/>
-        <BookCards/>
-        <BookCards/>
-        <BookCards/>
-        <BookCards/>
-        <BookCards/>
-        <BookCards/>
-        <BookCards/>
-        <BookCards/>
-        <BookCards/>
+        {cardData.map((card)=> <BookCards data = {card}/>)}
     </div>
   )
 }

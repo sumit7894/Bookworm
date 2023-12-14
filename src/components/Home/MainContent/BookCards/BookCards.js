@@ -1,31 +1,44 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './BookCards.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment} from '@fortawesome/free-solid-svg-icons'
 import Comment from './Comment/Comment'
+import useProductContext from '../../../../hooks/useProductContex'
+import axios from 'axios'
+import BASE_URL from '../../../../utils/constants'
 
-const BookCards = () => {
+const BookCards = ({data}) => {
   const [showComments,setShowComments] = useState(false);
+  const [upvotes,setUpvotes] = useState(data.upvotes);
+  const {cardData} = useProductContext();
+  console.log("here is card data",data);
   const handleCommentButton =()=>{
     setShowComments(!showComments);
+  }
+  const handleUpvote = async(id)=>{
+    try {
+      const response = await axios.patch(`${BASE_URL}/books/upvote`,{_id:id});
+      console.log(response);
+      setUpvotes((count)=>count +1);
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <div className='card__container'>
       <div className='book__card'>
         <div className='book__img'>
-          <img src='https://cdn.kobo.com/book-images/97be33fd-6a46-463e-96f6-01ea95c37250/353/569/90/False/dead-eyed-one-of-the-most-gripping-crime-thriller-books-of-the-year-dci-michael-lambert-crime-series-book-1.jpg'
+          <img src={`${data.logo}`}
           alt='book_cover'/>
         </div>
         <div className='book__card__content'>
-          <span>Crime and punishment</span>
+          <span>{data.BookName}</span>
           <div className='book__card__description'>
-            On the greate book by a russian authorOn the  russian author
+            {data.description}
           </div>
           <div className='book__card__footer'>
             <div className='book__card__genre'>
-              <span> Crime and thriller</span>
-              <span> Murder</span>
-              <span> Romantic</span>
+              {data?.tags?.map((tag)=><span>{tag}</span>)}
             </div>
             <div className='book__card__comment' onClick={handleCommentButton}>
             <FontAwesomeIcon icon={faComment} className='fa__icon'/>Comments
@@ -37,8 +50,8 @@ const BookCards = () => {
         </div>
         <div className='card__right__section'>
           <div className='card__upvotes'>
-            <span>^</span>
-            <span>123</span>
+            <span onClick={()=>handleUpvote(data._id)}>^</span>
+            <span>{upvotes}</span>
           </div>
           <div className='card__comment__count'>
             93<FontAwesomeIcon icon={faComment} className='fa__icon'/>
