@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './BookCards.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment} from '@fortawesome/free-solid-svg-icons'
@@ -7,11 +7,13 @@ import useProductContext from '../../../../hooks/useProductContex'
 import axios from 'axios'
 import BASE_URL from '../../../../utils/constants'
 
-const BookCards = ({data}) => {
+const BookCards = ({data,count}) => {
   const [showComments,setShowComments] = useState(false);
   const [upvotes,setUpvotes] = useState(data.upvotes);
-  const {cardData} = useProductContext();
-  console.log("here is card data",data);
+  const [commentCount,setCommentCount] = useState(count);
+  const handleCountUpdate=(newCount)=>{
+    setCommentCount(newCount);
+  } 
   const handleCommentButton =()=>{
     setShowComments(!showComments);
   }
@@ -54,12 +56,12 @@ const BookCards = ({data}) => {
             <span>{upvotes}</span>
           </div>
           <div className='card__comment__count'>
-            93<FontAwesomeIcon icon={faComment} className='fa__icon'/>
+            {commentCount}<FontAwesomeIcon icon={faComment} className='fa__icon'/>
           </div>
         </div>
       </div>
       {showComments && (<div className='footer__comment__container'>
-        <Comment/>
+        <Comment comments={data.comments} bookId={data._id}key={data._id} handleCountUpdate={handleCountUpdate}/>
       </div>)}
     </div>
     

@@ -42,8 +42,7 @@
 }
 .comment > span
 {
-    white-space: pre-wrap;
-    
+  white-space: pre-wrap;
 }
 .bullet {
     margin-left: 0.5rem;

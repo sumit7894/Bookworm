@@ -8,8 +8,10 @@ const Provider = ({ children }) => {
   const [isLoggedIn,setIsLoggedIn] = useState();
   const [popup,setPopup] = useState(false);
   const [cardData,setCardData] = useState([]);
+  // const [commentCount,setCommentCount] = useState();
   const value = { loginPage, setLoginPage,isSignup,setIsSignup,
-  isLoggedIn,setIsLoggedIn,popup,setPopup,cardData,setCardData
+  isLoggedIn,setIsLoggedIn,popup,setPopup,cardData,setCardData,
+  
   };
 
   return (

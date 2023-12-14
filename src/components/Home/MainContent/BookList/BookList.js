@@ -25,7 +25,7 @@ const BookList = () => {
   return (
     <div className='list__container'>
         <BookControllers/>
-        {cardData.map((card)=> <BookCards data = {card}/>)}
+        {cardData.map((card)=> <BookCards data = {card} count={card.comments.length}/>)}
     </div>
   )
 }
