@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay} from '@fortawesome/free-solid-svg-icons'
 import BASE_URL from '../../../../../utils/constants'
 import axios from 'axios'
-import useProductContext from '../../../../../hooks/useProductContex'
 const Comment = ({comments,bookId,handleCountUpdate}) => {
   const [cardComment,setCardComment] = useState([]);
   const [commentText,setCommentText] = useState();
