@@ -1,6 +1,6 @@
 const { createContext, useState } = require("react");
 
-const ProductContext = createContext();
+const BookContext = createContext();
 
 const Provider = ({ children }) => {
   const [loginPage, setLoginPage] = useState(false);
@@ -10,14 +10,15 @@ const Provider = ({ children }) => {
   const [cardData,setCardData] = useState([]);
   const [selectedGenre,setSelectedGenre] = useState([]);
   const [genre,setGenre] = useState([]);
+  const [sortCard,setSortCard] = useState("upvotes");
   const value = { loginPage, setLoginPage,isSignup,setIsSignup,
   isLoggedIn,setIsLoggedIn,popup,setPopup,cardData,setCardData,
-  selectedGenre,setSelectedGenre,genre,setGenre
+  selectedGenre,setSelectedGenre,genre,setGenre,sortCard,setSortCard
   };
 
   return (
-    <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
+    <BookContext.Provider value={value}>{children}</BookContext.Provider>
   );
 };
 export { Provider };
-export default ProductContext;  
+export default BookContext;  

@@ -4,19 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay} from '@fortawesome/free-solid-svg-icons'
 import BASE_URL from '../../../../../utils/constants'
 import axios from 'axios'
-const Comment = ({comments,bookId,handleCountUpdate}) => {
+const Comment = ({comments,bookId,setCommentCount}) => {
   const [cardComment,setCardComment] = useState([]);
   const [commentText,setCommentText] = useState();
   useEffect(()=>{
     setCardComment(comments);
+    // eslint-disable-next-line
   },[setCardComment])
   
   const handleChange =(e)=>{
     setCommentText(e.target.value);
   }
-  const handleCount=()=>{
-    handleCountUpdate((item)=>item+1);
-  }
+  
   const handleAddComment= async()=>{
     if(commentText ===""){
       return;
@@ -27,10 +26,13 @@ const Comment = ({comments,bookId,handleCountUpdate}) => {
         id:bookId,
         comment:commentText
       })
+      if(response)
+      {
       setCardComment((prevArray)=>[...prevArray,commentText]);
+      setCommentCount((item)=>item+1);
       setCommentText("");
-      handleCount();
-      console.log(response);
+      }
+      
     } catch (error) {
       console.log(error);
     }
@@ -46,8 +48,8 @@ const Comment = ({comments,bookId,handleCountUpdate}) => {
         />
         </div>
         <div className='comments__section'>
-          {cardComment.map((item)=>
-          (<div className='comment'><div className='bullet'/>
+          {cardComment.map((item,index)=>
+          (<div key={index} className='comment'><div className='bullet'/>
           <span>{item}</span>
           </div>)
           )}

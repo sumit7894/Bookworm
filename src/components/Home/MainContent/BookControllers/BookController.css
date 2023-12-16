@@ -14,7 +14,33 @@
     margin-left: 5rem;
     gap: 2rem;
 }
+.controller__items>p
+{
+    font-size: 1.5rem;
+    font-weight: 550;
+}
 .addbook__button__controller__bar
 {
     margin-right: 5rem;
+}
+.dropdown
+{
+    height: 1.8rem;
+    font-size: 1.4rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.add__book__button
+{
+    position: fixed;
+}
+.add__book__controller
+{
+    height: 2rem;
+    width: 8rem;
+    background-color: brown;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.2rem;
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './LoginAndSignupForm.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser,faMobileButton ,faLock} from '@fortawesome/free-solid-svg-icons'
-import useProductContext from '../../hooks/useProductContex'
+import useBookContext from '../../hooks/useBookContext'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import BASE_URL from '../../utils/constants'
@@ -13,7 +13,7 @@ const LoginAndSignupForm = () => {
   const [email,setEmail] = useState();
   const [mobile,setMobile] = useState();
   const [password,setPassword] = useState();
-  const {isSignup,setIsSignup,isLoggedIn,setIsLoggedIn} = useProductContext();
+  const {isSignup,setIsSignup,setIsLoggedIn} = useBookContext();
   const location = useLocation();
   const currentRoute =location.pathname;
   const navigate = useNavigate();
@@ -72,6 +72,7 @@ const LoginAndSignupForm = () => {
   }
   useEffect(()=>{
     setIsSignup(currentRoute==='/signup')
+     // eslint-disable-next-line
   },[currentRoute])
  
   return (

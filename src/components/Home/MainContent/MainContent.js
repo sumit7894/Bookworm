@@ -3,20 +3,24 @@ import FilterBox from './FilterBox/FilterBox'
 import BookList from './BookList/BookList'
 import './MainContent.css'
 import Popup from '../Popup/Popup'
-import useProductContext from '../../../hooks/useProductContex'
 import axios from 'axios'
 import BASE_URL from '../../../utils/constants'
+import useBookContext from '../../../hooks/useBookContext'
 const MainContent = () => {
-  const {popup} = useProductContext();
 
-  const {setCardData,genre,setGenre} = useProductContext();
+  const {setCardData,cardData,genre,setGenre,sortCard,selectedGenre,popup} = useBookContext();
   useEffect(()=>{
     fetchBooks();
     // eslint-disable-next-line
-  },[])
+  },[selectedGenre,sortCard])
   const fetchBooks = async ()=>{
     try {
-      const response = await axios.get(`${BASE_URL}/books/all`);
+      const response = await axios.get(`${BASE_URL}/books/all`,{
+        params:{
+          sortBy:sortCard,
+          genre:selectedGenre
+        },
+      });
       const card = response?.data?.data;
       setCardData(card);
       if(genre.length === 0){
@@ -42,7 +46,7 @@ const MainContent = () => {
   return (
     <div className='content__area'>
         <FilterBox/>
-        <BookList/>
+        <BookList cardData={cardData}/>
         {popup && (<div className='popup__overlay'>
           <Popup/>
         </div>)}

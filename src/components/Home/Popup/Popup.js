@@ -2,9 +2,9 @@ import React from 'react'
 import AddBookPopup from "./AddBookPopup/AddBookPopup"
 import './Popup.css'
 import PopupBanner from './PopupBanner/PopupBanner'
-import useProductContext from '../../../hooks/useProductContex'
+import useBookContext from '../../../hooks/useBookContext'
 const Popup = () => {
-  const {setPopup} = useProductContext();
+  const {setPopup} = useBookContext();
   const handleCloseButton =()=>{
     setPopup(false);
   }

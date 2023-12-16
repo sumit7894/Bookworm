@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './BookController.css'
-import useProductContext from '../../../../hooks/useProductContex';
+import useBookContext from '../../../../hooks/useBookContext';
 const BookControllers = () => {
-    const {setPopup} = useProductContext();
-    const [selectedOption,setSetSelectedOption] = useState();
+    const {setPopup,sortCard,setSortCard} = useBookContext();
 
     const handleOptionChange=(e)=>{
-        setSetSelectedOption(e.target.value);
+        setSortCard(e.target.value);
     }
     const handleAddBookButton=()=>{
         setPopup(true);
@@ -16,14 +15,16 @@ const BookControllers = () => {
         <div className='controller__items'>
             <p>Suggestions</p>
             <div className='dropdown__div'>
-            <select id="dropdown" value={selectedOption} onChange={handleOptionChange}>
+            <select className="dropdown" value={sortCard} onChange={handleOptionChange}>
                 <option value="Upvotes">Upvotes</option>
-                <option value="Comments">Comments</option>
+                <option value="commentCount">Comments</option>
             </select>
             </div>
         </div>
         <div className='addbook__button__controller__bar'>
-            <button onClick={handleAddBookButton}>Add Book +</button>
+            <button 
+            className='add__book__controller'
+            onClick={handleAddBookButton}>Add Book +</button>
         </div>
     </div>
   )

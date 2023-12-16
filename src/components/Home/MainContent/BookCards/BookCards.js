@@ -1,27 +1,29 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './BookCards.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment} from '@fortawesome/free-solid-svg-icons'
 import Comment from './Comment/Comment'
-import useProductContext from '../../../../hooks/useProductContex'
 import axios from 'axios'
 import BASE_URL from '../../../../utils/constants'
 
-const BookCards = ({data,count}) => {
+const BookCards = ({data}) => {
   const [showComments,setShowComments] = useState(false);
   const [upvotes,setUpvotes] = useState(data.upvotes);
-  const [commentCount,setCommentCount] = useState(count);
-  const handleCountUpdate=(newCount)=>{
-    setCommentCount(newCount);
-  } 
+  const [commentCount,setCommentCount] = useState(data.commentCount);
+  
+  useEffect(()=>{
+    setUpvotes(data.upvotes);
+    setCommentCount(data.commentCount);
+  },[data.upvotes,data.commentCount])
   const handleCommentButton =()=>{
     setShowComments(!showComments);
   }
   const handleUpvote = async(id)=>{
     try {
       const response = await axios.patch(`${BASE_URL}/books/upvote`,{_id:id});
-      console.log(response);
-      setUpvotes((count)=>count +1);
+      if(response){
+        setUpvotes((count)=>count +1);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +42,7 @@ const BookCards = ({data,count}) => {
           </div>
           <div className='book__card__footer'>
             <div className='book__card__genre'>
-              {data?.tags?.map((tag)=><span>{tag}</span>)}
+              {data?.tags?.map((tag,index)=><span key={index}>{tag}</span>)}
             </div>
             <div className='book__card__comment' onClick={handleCommentButton}>
             <FontAwesomeIcon icon={faComment} className='fa__icon'/>Comments
@@ -61,7 +63,9 @@ const BookCards = ({data,count}) => {
         </div>
       </div>
       {showComments && (<div className='footer__comment__container'>
-        <Comment comments={data.comments} bookId={data._id}key={data._id} handleCountUpdate={handleCountUpdate}/>
+        <Comment comments={data.comments} bookId={data._id} key={data._id}
+        setCommentCount={setCommentCount}
+        />
       </div>)}
     </div>
     

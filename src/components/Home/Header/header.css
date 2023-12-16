@@ -27,7 +27,7 @@ font-family: 'Sacramento';
     padding: 7px;
     border-radius: 3px;
 }
-.nav>button{
+.nav button{
     background-color: brown;
     border: none;
     color:  white;
